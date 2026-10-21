@@ -1,0 +1,47 @@
+{
+ "name": "timberdale",
+ "version": "1.0.0",
+ "description": "Timberdale - Chop. Plant. Survive the night.",
+ "author": "Timberdale",
+ "main": "main.js",
+ "scripts": {
+  "start": "electron .",
+  "dist": "electron-builder --win nsis --x64 --publish never"
+ },
+ "devDependencies": {
+  "electron": "^31.0.0",
+  "electron-builder": "^24.13.3"
+ },
+ "build": {
+  "appId": "com.timberdale.game",
+  "productName": "Timberdale",
+  "directories": {
+   "output": "dist",
+   "buildResources": "build"
+  },
+  "files": [
+   "main.js",
+   "index.html",
+   "icon.png"
+  ],
+  "win": {
+   "target": [
+    {
+     "target": "nsis",
+     "arch": [
+      "x64"
+     ]
+    }
+   ],
+   "icon": "build/icon.png"
+  },
+  "nsis": {
+   "oneClick": false,
+   "allowToChangeInstallationDirectory": true,
+   "createDesktopShortcut": true,
+   "createStartMenuShortcut": true,
+   "shortcutName": "Timberdale",
+   "artifactName": "Timberdale-Setup-${version}.${ext}"
+  }
+ }
+}
